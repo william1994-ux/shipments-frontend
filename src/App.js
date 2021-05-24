@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import {withRouter} from 'react-router';
+import { AuthGate } from "./AuthGate";
+import { ApolloProvider } from "@apollo/react-hooks";
+import { useAppApolloClient } from "./config/apolloClient";
+import { Route, Switch } from 'react-router-dom';
+import { AppProvider } from "./AppContext";
+import { Addwaybill } from "./pages/Addwaybill";
+import { Addshipment } from "./pages/Addshipment";
+import { Updateshipment } from "./pages/Updateshipment"; 
+import { Updatewaybill } from "./pages/Updatewaybill";
 
 function App() {
+
+
+  const apolloClient = useAppApolloClient();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Switch >
+    
+    <ApolloProvider client={apolloClient}>
+    <AppProvider>
+    <Route  path="/addwaybill" component={Addwaybill} />
+    <Route  path="/addshipment" component={Addshipment} />
+    <Route  path="/updateshipment" component={Updateshipment} />
+    <Route  path="/updatewaybill" component={Updatewaybill} />
+    
+      <AuthGate />
+      
+      </AppProvider>
+    </ApolloProvider>
+    
+    </Switch>
   );
 }
 

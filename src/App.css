@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+.add{
+  background: #757575;
+    width: 50px;
+    
+    height: 50px;
+    border-radius: 50px;
+    position: fixed;
+    bottom: 65px;
+    right: 26px;
+}
+.add-icon{
+  color: #ffffff;
+  font-size: 45px !important;
+}
+html {
+  background-color: #b1aeae;
+}
+
+body {
+  background-color: #b1aeae !important;  
+}
