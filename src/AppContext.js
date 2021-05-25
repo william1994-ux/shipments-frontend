@@ -6,8 +6,6 @@ const AppContext = React.createContext();
 const AppProvider = (props) => {
 
 const history = useHistory();
-// const shipmentsData = useShipmentsQuery();
-// const data = shipmentsData.shipments_by_user; 
 
     const user_id = sessionStorage.getItem('user_id'); 
     const GET_SHIPMENTS = gql`
